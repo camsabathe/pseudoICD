@@ -37,3 +37,4 @@ fit.loo.sp=idmloo(object=fit.splines, data=Paq1000, parallel = FALSE, cpus = NUL
 
 
 }
+

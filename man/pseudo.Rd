@@ -36,3 +36,4 @@ illness-death model.
 \examples{
 pseudo.t10=pseudo(fit.loo.w, t=10,lifeExpect=FALSE, parallel = FALSE, cpus=NULL, type=NULL)
 }
+
