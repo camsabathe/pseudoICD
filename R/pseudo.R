@@ -27,7 +27,7 @@ pseudo<-function(object, t, lifeExpect,
   if (class(object)!="idmloo")stop("Argument 'object' must be an idmloo class object from idmloo function")
   if (missing(t) && lifeExpect==FALSE) stop("Argument t is missing.")
   if (lifeExpect==TRUE) t <- Inf
-  if (missing(s)) stop("Argument s is missing.")
+  # if (missing(s)) stop("Argument s is missing.")
   if (parallel==TRUE){
     if(is.null(type))type="SOCK"
     if(is.null(cpus)){
