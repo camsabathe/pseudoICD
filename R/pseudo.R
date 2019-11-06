@@ -7,6 +7,7 @@
 #' illness-death model.
 #'
 #' @param object an idmloo class object returned by a call to the idmloo function
+#' @param s time point at which prediction is made
 #' @param t time horizon for prediction
 #' @param lifeExpect logical. if TRUE conmpute life expectancies, i.e., t=Inf
 #' @param maxtime The upper limit of integration for calculations of life expectancies from Weibull parametrizations.
@@ -22,7 +23,7 @@
 #'
 #' @examples
 #' pseudo.t10=pseudo(fit.loo.w, t=10,lifeExpect=FALSE, parallel = FALSE, cpus=NULL, type=NULL)
-pseudo<-function(object, t, lifeExpect,
+pseudo<-function(object, s, t, lifeExpect,
                  parallel=FALSE, cpus=NULL, type=NULL,...){
   if (class(object)!="idmloo")stop("Argument 'object' must be an idmloo class object from idmloo function")
   if (missing(t) && lifeExpect==FALSE) stop("Argument t is missing.")
@@ -47,6 +48,7 @@ pseudo<-function(object, t, lifeExpect,
   }
   idm.N=object$loo.all
   object$loo.all<-NULL
+  s<-ifelse(missing(s),0,s)
   s<-ifelse(idm.N$method=="splines", max(s,min(idm.N$knots01,idm.N$knots02,idm.N$knots12)),s)
   THETA=predict(object=idm.N, s=s, t=t, lifeExpect=lifeExpect,
                 conf.int=FALSE)$transprob$Estimate
