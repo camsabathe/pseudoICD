@@ -20,7 +20,7 @@
 #' formula01=Hist(time=list(l,r),event=dementia)~1,
 #' formula12=Hist(time=t,event=death)~1,
 #' method="Splines", kappa=c(200000,200000,20000),
-#' data=Paq1000)
+#' data=Paq1000, conf.int=FALSE)
 #' fit.loo.sp=idmloo(object=fit.splines, data=Paq1000, parallel = FALSE, cpus = NULL, type = NULL)
 #'
 #'
