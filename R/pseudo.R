@@ -23,7 +23,7 @@
 #'
 #' @examples
 #' pseudo.t10=pseudo(fit.loo.w, t=10,lifeExpect=FALSE, parallel = FALSE, cpus=NULL, type=NULL)
-pseudo<-function(object, s, t, lifeExpect,
+pseudo<-function(object, s=NA, t, lifeExpect,
                  parallel=FALSE, cpus=NULL, type=NULL,...){
   if (class(object)!="idmloo")stop("Argument 'object' must be an idmloo class object from idmloo function")
   if (missing(t) && lifeExpect==FALSE) stop("Argument t is missing.")
