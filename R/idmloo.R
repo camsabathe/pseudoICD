@@ -15,6 +15,7 @@
 #'
 #' @examples
 #' data("Paq1000")
+#' Paq1000[,c("l","r","t")]<-Paq1000[,c("l","r","t")]-Paq1000[,"e"]
 #' fit.splines <-  idm(formula02=Hist(time=t,event=death)~1,
 #' formula01=Hist(time=list(l,r),event=dementia)~1,
 #' formula12=Hist(time=t,event=death)~1,
